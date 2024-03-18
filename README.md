@@ -1,5 +1,8 @@
 # image-bin-compressor
 
+![NPM Downloads](https://img.shields.io/npm/dt/image-bin-compressor?style=plastic&logo=npm)
+![NPM Version](https://img.shields.io/npm/v/image-bin-compressor)
+
 A simple Node.js utility designed to be used with Multer in server-side applications to compress data.
 It offers lossless compression using the gzip algorithm.
 
