@@ -1,27 +1,45 @@
 import zlib from 'zlib';
-import fs from 'fs';
 
-const binaryData = fs.readFileSync( 'binary.txt' );// for testing purpose, originally the data is already a buffer object
-// Define a function to compress binary data using zlib
-async function compressBinaryData(binaryData) {
+/**
+ * Compresses binary data using the zlib deflate algorithm.
+ * 
+ * @param {Buffer} binaryData The binary data to compress.
+ * @returns {Promise<Buffer>} A promise that resolves to the compressed data.
+ */
+export async function compressBinaryData(binaryData) {
+    // Create a new Promise to handle the asynchronous operation
     return new Promise((resolve, reject) => {
+        // Use zlib.deflate to compress the binary data
         zlib.deflate(binaryData, (err, compressedData) => {
+            // Check for errors during compression
             if (err) {
+                // If an error occurs, reject the promise with the error
                 reject(err);
             } else {
+                // If compression is successful, resolve the promise with the compressed data
                 resolve(compressedData);
             }
         });
     });
 }
 
-// Define a function to decompress binary data using zlib
-async function decompressBinaryData(compressedData) {
+/**
+ * Decompresses binary data using the zlib inflate algorithm.
+ * 
+ * @param {Buffer} compressedData The compressed binary data to decompress.
+ * @returns {Promise<Buffer>} A promise that resolves to the decompressed data.
+ */
+export async function decompressBinaryData(compressedData) {
+    // Create a new Promise to handle the asynchronous operation
     return new Promise((resolve, reject) => {
+        // Use zlib.inflate to decompress the compressed data
         zlib.inflate(compressedData, (err, decompressedData) => {
+            // Check for errors during decompression
             if (err) {
+                // If an error occurs, reject the promise with the error
                 reject(err);
             } else {
+                // If decompression is successful, resolve the promise with the decompressed data
                 resolve(decompressedData);
             }
         });
@@ -29,26 +47,5 @@ async function decompressBinaryData(compressedData) {
 }
 
 
-// Compress and decompress binary data for testing
-async function compressAndDecompress() {
-    try {
-        // Compress binary data
-        const compressedData = await compressBinaryData(binaryData);
-        console.log('Compressed data:', compressedData);
-        console.log('Compressed data size:', compressedData.length / 1024, 'KB');
-
-        // Decompress compressed data
-        const decompressedData = await decompressBinaryData(compressedData);
-        console.log('Decompressed data:', decompressedData);
-        console.log('Decompressed data size:', decompressedData.length / 1024, 'KB');
-        console.log('Original data size:', binaryData.length / 1024, 'KB');
-        // Compare original binary data with decompressed data
-        console.log('Are original binary data and decompressed data equal?', Buffer.compare(binaryData, decompressedData) === 0);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
 
 
-// Run the compressAndDecompress function for testing
-compressAndDecompress();
