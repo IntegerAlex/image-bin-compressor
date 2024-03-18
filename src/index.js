@@ -47,5 +47,9 @@ export async function decompressBinaryData(compressedData) {
 }
 
 
-
-
+// convert hex buffer object to binary buffer object
+export function Buffer(fileBuffer){
+    const buffer = Buffer.from(fileBuffer, 'hex').toString('hex');
+    const Buffer = Buffer.from(buffer, 'binary');  
+    return Buffer;
+}

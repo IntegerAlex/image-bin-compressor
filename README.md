@@ -1,6 +1,11 @@
 # image-bin-compressor
 
-A simple image compressor using Node.js which takes binary buffer as input and returns compressed binary buffer as output.
+A simple Node.js utility designed to be used with Multer in server-side applications to compress data.
+It offers lossless compression using the gzip algorithm.
+
+## Multer implementation
+
+example usage, please refer to the [EXAMPLE.md](EXAMPLE.md) file.
 
 ## Installation
 
@@ -53,3 +58,5 @@ async function example() {
 
 example();
 ```
+
+

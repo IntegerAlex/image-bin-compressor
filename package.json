@@ -1,13 +1,13 @@
-
 {
   "name": "image-bin-compressor",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A simple image compressor using node.js which take binary buffer as input and return compressed binary buffer as output",
   "main": "src/index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/test.js",
+    "start": "node src/index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "nigesh",
+  "license": "CC0-1.0"
 }
