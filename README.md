@@ -3,6 +3,11 @@
 A simple Node.js utility designed to be used with Multer in server-side applications to compress data.
 It offers lossless compression using the gzip algorithm.
 
+🚧🔧🚨 **UNDER MAINTENANCE** 🚨🔧🚧
+
+***This project is currently undergoing maintenance.***
+
+***🛠️👷‍♂️ Please bear with us as we work to improve the project. Thank you for your patience! 👷‍♀️🔨***
 ## Multer implementation
 
 example usage, please refer to the [EXAMPLE.md](EXAMPLE.md) file.
